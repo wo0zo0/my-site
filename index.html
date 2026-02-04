@@ -14,29 +14,34 @@
   <h1>안녕 여긴 내 사이트</h1>
 
   <div class="post-list">
-    <a href="post1.html" class="post-card">
-      <div class="post-title">첫 번째 글</div>
-      <p>연습용으로 만든 첫 게시글임</p>
-    </a>
+    <div class="post-card" data-href="post1.html" role="link" tabindex="0">
+  <div class="post-title">첫 번째 글</div>
+  <p>연습용으로 만든 첫 게시글임</p>
+</div>
 
-<a href="post2.html" class="post-card">
+<div class="post-card" data-href="post2.html" role="link" tabindex="0">
   <div class="post-title">두 번째 글</div>
   <p>연습용으로 만든 두번째 게시글임</p>
-</a>
+</div>
 
-<a href="post3.html" class="post-card">
+<div class="post-card" data-href="post3.html" role="link" tabindex="0">
   <div class="post-title">세 번째 글</div>
   <p>연습용으로 만든 세번째 게시글임</p>
-</a>
+</div>
 </div>
 <script>
   document.querySelectorAll('.post-card').forEach(card => {
+    const go = () => { location.href = card.dataset.href }
+
+    card.addEventListener('click', go)
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go() }
+    })
+
     card.addEventListener('touchstart', () => card.classList.add('pressed'), {passive:true})
     card.addEventListener('touchend', () => card.classList.remove('pressed'))
     card.addEventListener('touchcancel', () => card.classList.remove('pressed'))
-card.addEventListener('touchstart', e => e.preventDefault())
-    card.addEventListener('contextmenu', e => e.preventDefault())
-  }, {passive:false}))
+  })
 </script>
 </body>
 </html>
