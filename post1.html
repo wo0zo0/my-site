@@ -58,6 +58,7 @@
   }
 
   loadComments()
+  updateCount()
 function updateCount() {
   const count = document.querySelectorAll('#commentList .comment').length
   document.getElementById('commentCount').textContent = `(${count})`
