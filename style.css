@@ -23,7 +23,7 @@ nav a {
 .post-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 50px;
 }
 
 /* 카드 */
