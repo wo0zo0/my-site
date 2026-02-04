@@ -1,41 +1,47 @@
 body {
   margin: 0;
   padding: 16px;
-  background: #0f172a; /* 네이비 배경 */
+  background: #1e293b; /* 밝아진 네이비 */
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  color: #0a0a0a;
+  color: #ffffff; /* 기본 텍스트 흰색 */
 }
 
+/* 메뉴 */
 nav {
-  background: #ffffff;
-  padding: 14px 16px;
-  border-radius: 12px;
+  background: transparent;
   margin-bottom: 20px;
 }
 
 nav a {
-  color: #0a0a0a;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   margin-right: 12px;
 }
 
+/* 카드 목록 */
 .post-list {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
+/* 카드 */
 .post-card {
   background: #ffffff;
   padding: 18px;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
+/* 카드 안 텍스트는 검정 */
+.post-card,
 .post-card a {
   color: #0a0a0a;
   text-decoration: none;
+}
+
+.post-card a {
   font-size: 18px;
   font-weight: 700;
 }
