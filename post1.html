@@ -58,7 +58,10 @@
   }
 
   loadComments()
-
+function updateCount() {
+  const count = document.querySelectorAll('#commentList .comment').length
+  document.getElementById('commentCount').textContent = `(${count})`
+}
   addBtn.addEventListener('click', () => {
     const name = (nameInput.value || '익명').trim()
     const content = contentInput.value.trim()
