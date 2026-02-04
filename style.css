@@ -25,7 +25,9 @@ nav a {
   flex-direction: column;
   gap: 50px;
 }
-
+.post-card + .post-card {
+  margin-top: 20px;
+}
 /* 카드 */
 .post-card {
   background: #ffffff;
