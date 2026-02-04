@@ -74,7 +74,10 @@
     item.querySelector('.comment-body').textContent = content
 
     list.prepend(item)
-    saveComments()
+    item.querySelector('.comment-del').addEventListener('click', () => {
+  item.remove()
+  saveComments()
+})
 
     contentInput.value = ''
   })
