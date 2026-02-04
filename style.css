@@ -51,10 +51,11 @@ nav a {
   color: #4b5563;
 }
 .post-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: block;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .post-card:active {
-  transform: scale(0.98);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
