@@ -41,10 +41,16 @@
   const nameInput = document.getElementById('name')
   const contentInput = document.getElementById('content')
   const addBtn = document.getElementById('addComment')
+  const countEl = document.getElementById('commentCount')
 
   function today() {
     const d = new Date()
     return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`
+  }
+
+  function updateCount() {
+    const count = list.querySelectorAll('.comment').length
+    if (countEl) countEl.textContent = `(${count})`
   }
 
   function loadComments() {
@@ -57,12 +63,11 @@
     localStorage.setItem(pageKey, list.innerHTML)
   }
 
+  // 페이지 열리면: 저장된 댓글 불러오고, 개수 갱신
   loadComments()
   updateCount()
-function updateCount() {
-  const count = document.querySelectorAll('#commentList .comment').length
-  document.getElementById('commentCount').textContent = `(${count})`
-}
+
+  // 새 댓글 등록
   addBtn.addEventListener('click', () => {
     const name = (nameInput.value || '익명').trim()
     const content = contentInput.value.trim()
@@ -71,20 +76,23 @@ function updateCount() {
     const item = document.createElement('div')
     item.className = 'comment'
     item.innerHTML = `
-  <div class="comment-head">
-    <span>${name} · ${today()}</span>
-    <button class="comment-del" type="button">삭제</button>
-  </div>
-  <div class="comment-body"></div>
-`
+      <div class="comment-head">
+        <span>${name} · ${today()}</span>
+        <button class="comment-del" type="button">삭제</button>
+      </div>
+      <div class="comment-body"></div>
+    `
     item.querySelector('.comment-body').textContent = content
 
-    list.prepend(item)
     item.querySelector('.comment-del').addEventListener('click', () => {
-  item.remove()
-  saveComments()
+      item.remove()
+      saveComments()
       updateCount()
-})
+    })
+
+    list.prepend(item)
+    saveComments()
+    updateCount()
 
     contentInput.value = ''
   })
