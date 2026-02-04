@@ -69,3 +69,12 @@ nav a {
   color: #2563eb;
   font-weight: 600;
 }
+.post-meta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.post-meta span {
+  margin-right: 6px;
+}
