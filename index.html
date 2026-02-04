@@ -29,5 +29,12 @@
   <p>연습용으로 만든 세번째 게시글임</p>
 </a>
 </div>
+  <script>
+  document.querySelectorAll('.post-card').forEach(card => {
+    card.addEventListener('touchstart', () => card.classList.add('pressed'), {passive:true})
+    card.addEventListener('touchend', () => card.classList.remove('pressed'))
+    card.addEventListener('touchcancel', () => card.classList.remove('pressed'))
+  })
+</script>
 </body>
 </html>
