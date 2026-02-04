@@ -65,9 +65,12 @@
     const item = document.createElement('div')
     item.className = 'comment'
     item.innerHTML = `
-      <div class="comment-head">${name} · ${today()}</div>
-      <div class="comment-body"></div>
-    `
+  <div class="comment-head">
+    <span>${name} · ${today()}</span>
+    <button class="comment-del" type="button">삭제</button>
+  </div>
+  <div class="comment-body"></div>
+`
     item.querySelector('.comment-body').textContent = content
 
     list.prepend(item)
