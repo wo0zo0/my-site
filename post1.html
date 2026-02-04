@@ -14,6 +14,55 @@
 <div class="post-card">
   <div class="post-title">첫 번째 글</div>
   <p>이건 연습용으로 만든 첫 게시글임</p>
+  <hr class="divider">
+
+<div class="comments">
+  <div class="comments-title">댓글</div>
+
+  <div class="comment-form">
+    <input id="name" type="text" placeholder="이름">
+    <textarea id="content" rows="3" placeholder="댓글을 입력해줘"></textarea>
+    <button id="addComment" type="button">등록</button>
+  </div>
+
+  <div id="commentList" class="comment-list">
+    <div class="comment">
+      <div class="comment-head">우주 · 2026.02.05</div>
+      <div class="comment-body">첫 댓글 테스트</div>
+    </div>
+  </div>
 </div>
+</div>
+  <script>
+  const addBtn = document.getElementById('addComment')
+  const nameInput = document.getElementById('name')
+  const contentInput = document.getElementById('content')
+  const list = document.getElementById('commentList')
+
+  function today() {
+    const d = new Date()
+    const y = d.getFullYear()
+    const m = String(d.getMonth() + 1).padStart(2, '0')
+    const day = String(d.getDate()).padStart(2, '0')
+    return `${y}.${m}.${day}`
+  }
+
+  addBtn.addEventListener('click', () => {
+    const name = (nameInput.value || '익명').trim()
+    const content = contentInput.value.trim()
+    if (!content) return
+
+    const item = document.createElement('div')
+    item.className = 'comment'
+    item.innerHTML = `
+      <div class="comment-head">${name} · ${today()}</div>
+      <div class="comment-body"></div>
+    `
+    item.querySelector('.comment-body').textContent = content
+    list.prepend(item)
+
+    contentInput.value = ''
+  })
+</script>
 </body>
 </html>
