@@ -83,6 +83,7 @@ function updateCount() {
     item.querySelector('.comment-del').addEventListener('click', () => {
   item.remove()
   saveComments()
+      updateCount()
 })
 
     contentInput.value = ''
